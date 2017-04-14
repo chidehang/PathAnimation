@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/tu_10"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/image"
+        android:padding="15dp"
+        android:gravity="center_vertical"
+        android:background="#5d5d5d"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:text="阳光手机壳"  />
+    
+    <RelativeLayout
+        android:id="@+id/rlController"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true">
+        
+        <ImageButton
+            android:id="@+id/btnShare"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/wode_share"
+            android:background="@drawable/bg_btn"/>
+
+        <LinearLayout
+            android:id="@+id/llBtnPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <Button
+                android:id="@+id/btnWechat"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:background="@mipmap/btn_wx"/>
+
+            <Button
+                android:id="@+id/btnWxMoment"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:layout_marginLeft="35dp"
+                android:background="@mipmap/btn_wxmoment"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
