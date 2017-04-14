@@ -82,19 +82,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     btnShare.setImageDrawable(new BitmapDrawable());
                     //按钮面板下移
                     rlController.setY(rlController.getY() + translateOffset);
-
-                    //移动到一定值，开始进行缩放动画
-                    ObjectAnimator animator1 = ofFloat(new ViewWrapper(btnShare), "scale", 0f, 10f).setDuration(1000);
-                    animator1.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            btnShare.setVisibility(View.GONE);
-                            rlController.setBackgroundColor(Color.parseColor("#3a84ff"));
-                            showControlBtn();
-                        }
-                    });
-                    animator1.start();
                 }
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                //移动到一定值，开始进行缩放动画
+                ObjectAnimator animator1 = ofFloat(new ViewWrapper(btnShare), "scale", 0f, 10f).setDuration(500);
+                animator1.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        btnShare.setVisibility(View.GONE);
+                        rlController.setBackgroundColor(Color.parseColor("#3a84ff"));
+                        showControlBtn();
+                    }
+                });
+                animator1.start();
             }
         });
         animator.start();
