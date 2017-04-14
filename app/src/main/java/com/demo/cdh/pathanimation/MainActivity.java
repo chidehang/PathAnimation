@@ -66,8 +66,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void startBezierMovement() {
+        //设置移动路径，包括起始点、终止点 、锚点1、锚点2
         PathPoint path = new PathPoint(0, 0, -700, 0, -200, 200, -200, 200);
+        //记录起点X
         startX = 0;
+        //计算偏移量
         translateOffset = btnShare.getWidth() / 2;
         ObjectAnimator animator = ObjectAnimator.ofObject(this, "translate", new BezierTypeEvaluator(), path);
         animator.setDuration(500);
@@ -77,8 +80,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 if(Math.abs(startX-btnShare.getX())>MIN_X_DISTANCE && !flag) {
                     flag = true;
                     btnShare.setImageDrawable(new BitmapDrawable());
+                    //按钮面板下移
                     rlController.setY(rlController.getY() + translateOffset);
 
+                    //移动到一定值，开始进行缩放动画
                     ObjectAnimator animator1 = ofFloat(new ViewWrapper(btnShare), "scale", 0f, 10f).setDuration(1000);
                     animator1.addListener(new AnimatorListenerAdapter() {
                         @Override
@@ -95,6 +100,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         animator.start();
     }
 
+    /**
+     * 显示按钮动画
+     */
     public void showControlBtn() {
         int count = llBtnPanel.getChildCount();
         for (int i=0; i<count; i++) {
